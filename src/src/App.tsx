@@ -10,7 +10,7 @@ const App = () => {
   return (
     <StyledMain>
       <LeftMenu />
-      <MainArea visiblePage='bookShelf' />
+      <MainArea activePage='archive' />
     </StyledMain>
   );
 };
