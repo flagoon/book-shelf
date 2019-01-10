@@ -6,7 +6,7 @@ interface IProps {
     className: string;
 }
 
-const MenuListItem = ({children, className}: IProps): JSX.Element => <li className={className}>{children}</li>;
+const MenuListItem = ({children, className}: IProps) => <li className={className}>{children}</li>;
 
 const StyledMenuListItem = styled(MenuListItem)`
     background-color: #888;
