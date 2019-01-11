@@ -1,4 +1,4 @@
-import { combineReducers } from "redux";
-import { pageReducer } from './pageDataReducer'
+import { combineReducers } from 'redux';
+import { pageReducer } from './pageReducer';
 
-export default combineReducers({pageReducer});
+export default combineReducers({page: pageReducer});

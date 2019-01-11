@@ -1,7 +1,7 @@
-import * as React from "react";
-import styled from 'styled-components'
+import * as React from 'react';
+import styled from 'styled-components';
 import LeftMenu from './LeftMenu/LeftMenu';
-import MainArea from './MainArea/MainArea'
+import MainArea from './MainArea/MainArea';
 
 const App = () => {
 

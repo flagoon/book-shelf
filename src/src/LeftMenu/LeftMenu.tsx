@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import MenuListItem from './MenuListItem/MenuListItem'
+import MenuListItem from './MenuListItem/MenuListItem';
 
 const LeftMenu = () => {
     return (
@@ -9,8 +9,8 @@ const LeftMenu = () => {
             <MenuListItem className={'menuItem'}>Archive</MenuListItem>
             <MenuListItem className={'menuItem'}>AddBook</MenuListItem>
         </StyledLeftMenu>
-    )
-}
+    );
+};
 
 const StyledLeftMenu = styled.ul`
     display: flex;
