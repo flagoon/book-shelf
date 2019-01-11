@@ -1,14 +1,26 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styled, { StyledComponent } from 'styled-components';
+import { connect } from 'react-redux';
+import makeAction from '../../redux/actions/makeAction';
+import actionTypes from '../../redux/actionTypes';
 
-interface IProps {
-    children: React.ReactNode;
-    className: string;
+interface IMapDispatchToProps {
+    changePage: (page: string) => void
 }
 
-const MenuListItem = ({children, className}: IProps) => <li className={className}>{children}</li>;
+interface IProps {
+    readonly children: string;
+    readonly linkAddress: string;
+    changePage: (page: any) => any;
+}
 
-const StyledMenuListItem = styled(MenuListItem)`
+const MenuListItem = ({children, linkAddress, changePage}: IProps) => {
+    return (
+        <StyledMenuListItem onClick={() => changePage({activePage: linkAddress})} linkAddress={linkAddress}>{children}</StyledMenuListItem>
+        )
+    }
+
+const StyledMenuListItem: any = styled.li`
     background-color: #888;
     list-style: none inside;
     font-size: 3rem;
@@ -21,4 +33,8 @@ const StyledMenuListItem = styled(MenuListItem)`
     }
 `;
 
-export default StyledMenuListItem;
+const mapDispatchToProps = {
+    changePage: makeAction(actionTypes.CHANGE_ACTIVE_PAGE)
+}
+
+export default connect(undefined, mapDispatchToProps)(MenuListItem)

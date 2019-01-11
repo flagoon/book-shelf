@@ -24,8 +24,8 @@ const MainArea = ({ activePage }: IProps) => {
     return (visibleComponent[activePage]);
 };
 
-const mapStateToProps = (state: any) => ({
-    activePage: state.page.activePage,
+const mapStateToProps = ({pageReducer}: any) => ({
+    activePage: pageReducer.activePage,
 });
 
 export default connect(mapStateToProps, undefined)(MainArea);

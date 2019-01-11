@@ -5,9 +5,9 @@ import MenuListItem from './MenuListItem/MenuListItem';
 const LeftMenu = () => {
     return (
         <StyledLeftMenu>
-            <MenuListItem className={'menuItem'}>Bookshelf</MenuListItem>
-            <MenuListItem className={'menuItem'}>Archive</MenuListItem>
-            <MenuListItem className={'menuItem'}>AddBook</MenuListItem>
+            <MenuListItem linkAddress={'bookShelf'}>Bookshelf</MenuListItem>
+            <MenuListItem linkAddress={'archive'}>Archive</MenuListItem>
+            <MenuListItem linkAddress={'addBookForm'}>AddBook</MenuListItem>
         </StyledLeftMenu>
     );
 };
