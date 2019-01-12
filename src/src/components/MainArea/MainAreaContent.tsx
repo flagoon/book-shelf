@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
 import AddBookForm from './AddBookForm/AddBookForm';
 import Archive from './Archive/Archive';
 import Bookshelf from './Bookshelf/Bookshelf';
@@ -15,7 +14,7 @@ interface IVisibleComponent {
     [key: string]: JSX.Element;
 }
 
-const MainArea = ({ activePage }: IProps) => {
+const MainAreaContent = ({ activePage }: IProps) => {
     const visibleComponent: IVisibleComponent = {
         bookShelf: <Bookshelf />,
         addBookForm: <AddBookForm />,
@@ -24,8 +23,4 @@ const MainArea = ({ activePage }: IProps) => {
     return (visibleComponent[activePage]);
 };
 
-const mapStateToProps = ({pageReducer}: any) => ({
-    activePage: pageReducer.activePage,
-});
-
-export default connect(mapStateToProps, undefined)(MainArea);
+export default MainAreaContent;

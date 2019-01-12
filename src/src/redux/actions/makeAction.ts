@@ -1,7 +1,15 @@
-export default function makeAction(type: string, shouldOverwriteOnlyChanges = false) {
-    return (payload: any) => ({
-        type,
-        payload,
-        shouldOverwriteOnlyChanges
-    });
+import { Action, ActionCreator } from "redux";
+
+interface IDefaultAction {
+    type: string,
+    payload: any
+}
+
+export default function makeAction(
+    type: string
+    ): ActionCreator<IDefaultAction> {
+        return (payload: any) => ({
+            type,
+            payload
+        });
 }
