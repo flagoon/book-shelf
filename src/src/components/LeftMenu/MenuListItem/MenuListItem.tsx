@@ -1,8 +1,8 @@
 import * as React from 'react';
-import styled, { StyledComponent } from 'styled-components';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
-import makeAction from '../../redux/actions/makeAction';
-import actionTypes from '../../redux/actionTypes';
+import makeAction from '../../../redux/actions/makeAction';
+import actionTypes from '../../../redux/actionTypes';
 
 interface IMapDispatchToProps {
     changePage: (page: string) => void
