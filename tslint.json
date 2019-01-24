@@ -1,7 +1,17 @@
 {
-    "extends": ["tslint:latest", "tslint:react"],
-    "defaultSeverity": "warning",
+    "extends": ["tslint:recommended", "tslint-config-prettier"],
+    "defaultSeverity": "error",
     "linterOptions": {
-        "exclude": ["config/**/*.js", "node_modules/**/*.ts"]
+        "exclude": ["node_modules/**/*.ts"]
+    },
+    "rules": {
+        "class-name": true,
+        "comment-format": [true, "check-space"],
+        "no-var-keyword": true,
+        "object-literal-sort-keys": false,
+        "no-internal-module": true,
+        "no-null-keyword": true,
+        "prefer-const": true,
+        "jsdoc-format": true
     }
 }
