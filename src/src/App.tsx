@@ -1,16 +1,13 @@
-import * as React from "react";
-import styled from 'styled-components'
-import LeftMenu from './LeftMenu/LeftMenu';
-import MainArea from './MainArea/MainArea'
-
-
+import React from "react";
+import styled from "styled-components";
+import LeftMenu from "./LeftMenu/LeftMenu";
+import MainArea from "./MainArea/MainArea";
 
 const App = () => {
-
   return (
     <StyledMain>
       <LeftMenu />
-      <MainArea activePage='archive' />
+      <MainArea activePage="archive" />
     </StyledMain>
   );
 };

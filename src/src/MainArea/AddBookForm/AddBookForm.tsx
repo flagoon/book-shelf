@@ -1,5 +1,5 @@
-import * as React from 'react'
+import React from "react";
 
-const AddBookForm = () => <div>AddBookForm</div>
+const AddBookForm = () => <div>AddBookForm</div>;
 
 export default AddBookForm;

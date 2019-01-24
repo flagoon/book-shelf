@@ -1,5 +1,5 @@
-import * as React from 'react'
+import React from "react";
 
-const Bookshelf = () => <div>Bookshelf</div>
+const Bookshelf = () => <div>Bookshelf</div>;
 
 export default Bookshelf;
