@@ -17,7 +17,7 @@ const MainArea = () => {
     );
 };
 
-const NoMatch = () => {
+export const NoMatch = () => {
     return (
         <StyledNoMatch>
             <h1>Failed Match!</h1>
