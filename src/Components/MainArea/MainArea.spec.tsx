@@ -2,7 +2,7 @@ import { mount } from 'enzyme';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { NoMatch } from '../ErrorPages/404_page';
-import Bookshelf from './Bookshelf/Bookshelf';
+import Bookshelf from './Bookshelf/Bookshelf.styled';
 import MainArea from './MainArea';
 
 describe('MainArea routes', () => {
