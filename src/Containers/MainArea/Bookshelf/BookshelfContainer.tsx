@@ -1,9 +1,10 @@
 import React from 'react';
-import Bookshelf from '../../../Components/MainArea/Bookshelf/Bookshelf';
-import { IBooks } from '../../../typings/IBooks';
+import { Bookcase } from '../../../Components/MainArea/Bookshelf/Bookcase/Bookcase';
+import Bookshelf from '../../../Components/MainArea/Bookshelf/Bookshelf.styled';
+import { IBook } from '../../../typings/IBooks';
 
 interface IState {
-    books: IBooks[];
+    books: IBook[];
 }
 
 export default class BookshelfContainer extends React.Component<{}, IState> {
@@ -15,7 +16,14 @@ export default class BookshelfContainer extends React.Component<{}, IState> {
     }
 
     public render() {
-        return <Bookshelf books={this.state.books} />;
+        const { books }: IState = this.state;
+        return (
+            <Bookshelf>
+                {books.map(book => (
+                    <Bookcase book={book} key={book.id} />
+                ))}
+            </Bookshelf>
+        );
     }
 
     private getBooks() {
