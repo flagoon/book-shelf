@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
-import styled from 'styled-components';
+import { Route, Switch } from 'react-router-dom';
+import { NoMatch } from '../ErrorPages/404_page';
 import AddBookForm from './AddBookForm/AddBookForm';
 import Archive from './Archive/Archive';
 import Bookshelf from './Bookshelf/Bookshelf';
@@ -16,25 +16,5 @@ const MainArea = () => {
         </Switch>
     );
 };
-
-export const NoMatch = () => {
-    return (
-        <StyledNoMatch>
-            <h1>Failed Match!</h1>
-            <Link to='/'>Go back!</Link>
-        </StyledNoMatch>
-    );
-};
-
-const StyledNoMatch = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    & > h1 {
-        color: red;
-        font-size: 10rem;
-    }
-`;
 
 export default MainArea;

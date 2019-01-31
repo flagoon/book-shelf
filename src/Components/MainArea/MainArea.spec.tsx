@@ -1,8 +1,9 @@
 import { mount } from 'enzyme';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
+import { NoMatch } from '../ErrorPages/404_page';
 import Bookshelf from './Bookshelf/Bookshelf';
-import MainArea, { NoMatch } from './MainArea';
+import MainArea from './MainArea';
 
 describe('MainArea routes', () => {
     it('should render component with valid path', () => {
