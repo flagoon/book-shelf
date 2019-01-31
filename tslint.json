@@ -12,6 +12,7 @@
         "no-internal-module": true,
         "no-null-keyword": true,
         "prefer-const": true,
-        "jsdoc-format": true
+        "jsdoc-format": true,
+        "no-unused-variable": true
     }
 }
