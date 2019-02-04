@@ -3,11 +3,11 @@ import { Bookcase } from '../../../Components/MainArea/Bookshelf/Bookcase/Bookca
 import Bookshelf from '../../../Components/MainArea/Bookshelf/Bookshelf.styled';
 import { IBook } from '../../../typings/IBooks';
 
-interface IState {
+interface IBookshelfContainerState {
     books: IBook[];
 }
 
-export default class BookshelfContainer extends React.Component<{}, IState> {
+export default class BookshelfContainer extends React.Component<{}, IBookshelfContainerState> {
     constructor(props: {}) {
         super(props);
         this.state = {
@@ -16,7 +16,7 @@ export default class BookshelfContainer extends React.Component<{}, IState> {
     }
 
     public render() {
-        const { books }: IState = this.state;
+        const { books }: IBookshelfContainerState = this.state;
         return (
             <Bookshelf>
                 {books.map(book => (
