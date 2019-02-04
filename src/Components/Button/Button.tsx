@@ -10,7 +10,8 @@ interface IButton {
     [key: string]: boolean | string;
 }
 
-export const Button = ({ value, className }: IButton) => {
+export const Button = (props: IButton) => {
+    const { value, className } = props;
     return <button className={className}>{value}</button>;
 };
 
