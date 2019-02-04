@@ -12,11 +12,12 @@ import {
     Title,
 } from './Bookcase.styled';
 
-interface IProps {
+interface IBookcaseProps {
     book: IBook;
 }
 
-export const Bookcase = ({ book }: IProps) => {
+export const Bookcase = (props: IBookcaseProps) => {
+    const { book } = props;
     return (
         <BookcaseHolder>
             <DataWrapper>
