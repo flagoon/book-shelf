@@ -24,14 +24,14 @@ export const FirstRow = styled(BookRow)`
 `;
 
 export const Title = styled.div`
-    width: 300px;
+    width: 400px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 `;
 
 export const Author = styled.div`
-    width: 150px;
+    width: 250px;
 `;
 
 export const ISBN = styled.div`
