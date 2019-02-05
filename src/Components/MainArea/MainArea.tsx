@@ -1,29 +1,21 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { ShowNotificationType } from '../../ContextProvider/NotificationProvider';
-import { NoMatch } from '../Common/ErrorPages/404_page';
-import Archive from './Archive/Archive';
-import Bookshelf from './Bookshelf/Bookshelf';
-import { AddBookButton, StyledMainArea } from './MainArea.styled';
-import { SingleBook } from './SingleBook/SingleBook';
+import ArchiveContainer from '../../Containers/MainArea/Archive/ArchiveContainer';
+import BookshelfContainer from '../../Containers/MainArea/Bookshelf/BookshelfContainer';
+import { BookContainer } from '../../Containers/MainArea/SingleBook/BookContainer';
+import { NoMatch } from '../ErrorPages/404_page';
+import AddBookForm from './AddBookForm/AddBookForm';
+import { StyledMainArea } from './MainArea.styled';
 
-interface IMainAreaProps {
-    showNotification: (type: ShowNotificationType) => void;
-}
-
-const MainArea = ({ showNotification }: IMainAreaProps) => {
-    function showFormNotification(e: React.MouseEvent<HTMLButtonElement>) {
-        e.stopPropagation();
-        showNotification('SHOW_FORM');
-    }
+const MainArea = () => {
     return (
         <StyledMainArea>
-            <AddBookButton onClick={showFormNotification}>➕ Add book</AddBookButton>
             <Switch>
-                <Route exact path="/" component={Bookshelf} />
-                <Route path="/bookshelf" component={Bookshelf} />
-                <Route exact path="/archive" component={Archive} />
-                <Route path="/book/:bookId" component={SingleBook} />
+                <Route exact path='/' component={BookshelfContainer} />
+                <Route path='/bookshelf' component={BookshelfContainer} />
+                <Route exact path='/archive' component={ArchiveContainer} />
+                <Route path='/addbook' component={AddBookForm} />
+                <Route path='/archive/:bookId' component={BookContainer} />
                 <Route component={NoMatch} />
             </Switch>
         </StyledMainArea>
