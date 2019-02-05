@@ -30,7 +30,6 @@ export default class ArchiveContainer extends React.Component<{}, IArchiveContai
                     <Title>Title</Title>
                     <Author>Author</Author>
                     <ISBN>ISBN</ISBN>
-                    <div>isRead</div>
                 </FirstRow>
                 {archivedBooks.map(archivedBook => {
                     return <ArchivedBook book={archivedBook} key={archivedBook.id} />;
