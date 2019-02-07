@@ -3,12 +3,10 @@ export interface IBook {
     index: number;
     picture: string;
     pages: number;
-    cover: ICover;
+    cover: string;
     isbn: string;
     author: string;
     date: string;
     title: string;
     description: string;
 }
-
-type ICover = ['hard', 'soft'];
