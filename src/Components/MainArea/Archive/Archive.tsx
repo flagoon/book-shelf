@@ -1,29 +1,28 @@
 import React from 'react';
-import {BooksConsumer, IBookContext} from '../../../ContextProvider/BooksProvider';
-import {MainBoxArchive} from "./Archive.styled";
-import { ArchivedBook } from './ArchivedBook/ArchivedBook';
-import { Author, FirstRow, ISBN, Title } from './ArchivedBook/ArchivedBook.styled';
+import { ArchivedBook } from '../../../Components/MainArea/Archive/ArchivedBook/ArchivedBook';
+import { Author, FirstRow, ISBN, Title } from '../../../Components/MainArea/Archive/ArchivedBook/ArchivedBook.styled';
+import { BooksConsumer } from '../../../ContextProvider/BooksProvider';
 
 const Archive = () => (
     <BooksConsumer>
-        {(context) => {
+        {context => {
             {
-                const { books } = context as IBookContext;
-                return (
-                    <MainBoxArchive>
-                        <FirstRow>
-                            <Title>Title</Title>
-                            <Author>Author</Author>
-                            <ISBN>ISBN</ISBN>
-                        </FirstRow>
-                        {books
-                            .valueSeq()
-                            .filter((book) => book.isArchived)
-                            .map((book) => (
+                const { archivedBooks } = context;
+                if (archivedBooks) {
+                    return (
+                        <>
+                            <FirstRow>
+                                <Title>Title</Title>
+                                <Author>Author</Author>
+                                <ISBN>ISBN</ISBN>
+                            </FirstRow>
+                            {archivedBooks!.valueSeq().map(book => (
                                 <ArchivedBook book={book} key={book.id} />
                             ))}
-                    </MainBoxArchive>
-                );
+                        </>
+                    );
+                }
+                return <div>Nothing to load</div>;
             }
         }}
     </BooksConsumer>
