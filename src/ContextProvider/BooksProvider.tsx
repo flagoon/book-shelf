@@ -4,21 +4,21 @@ import { C } from '../Constants';
 import { IBook } from '../typings/IBooks';
 
 interface IState {
-    books: Map<string, IBook> | {};
-    archivedBooks: Map<string, IBook> | {};
+    books: Map<string, IBook> | undefined;
+    archivedBooks: Map<string, IBook> | undefined;
 }
 
 const defaultValue: IState = {
-    books: {},
-    archivedBooks: {},
+    books: undefined,
+    archivedBooks: undefined,
 };
 
 const { Provider, Consumer } = React.createContext(defaultValue);
 
 class BooksProvider extends React.Component<{}, IState> {
     public state = {
-        books: Map({}),
-        archivedBooks: Map({}),
+        books: undefined,
+        archivedBooks: undefined,
     };
 
     public componentDidMount() {
