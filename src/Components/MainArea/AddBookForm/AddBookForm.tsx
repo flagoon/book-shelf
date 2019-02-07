@@ -5,7 +5,7 @@ const AddBookForm = () => {
     return (
         <BooksConsumer>
             {context => {
-                return <div>{context.one}</div>;
+                return <div>{JSON.stringify(context)}</div>;
             }}
         </BooksConsumer>
     );
