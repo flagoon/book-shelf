@@ -11,6 +11,7 @@ import {
     TextDataWrapper,
     Title,
 } from './Bookcase.styled';
+import { IsRead } from './IsRead';
 
 interface IBookcaseProps {
     book: IBook;
@@ -21,9 +22,12 @@ export const Bookcase = (props: IBookcaseProps) => {
     return (
         <BookcaseHolder>
             <DataWrapper>
-                <img src={book.picture} alt='Cover image'/>
+                <img src={book.picture} alt='Cover image' />
                 <TextDataWrapper>
-                    <Title>{book.title}</Title>
+                    <Title>
+                        {book.title}
+                        {book.isRead && <IsRead />}
+                    </Title>
                     <Author>Author: {book.author}</Author>
                     <TechnicalBookData>
                         <li>
@@ -41,9 +45,9 @@ export const Bookcase = (props: IBookcaseProps) => {
                     </TechnicalBookData>
                     <BookDescription>{book.description}</BookDescription>
                     <ControlButtons>
-                        <StyledButton success value='Mark as read' className='styledButton' />
-                        <StyledButton primary value='Archive the book' className='styledButton' />
-                        <StyledButton alert value='Delete the book' className='styledButton' />
+                        <StyledButton success value='🔖 Mark as read' />
+                        <StyledButton primary value='💾 Archive the book' />
+                        <StyledButton alert value='🗑 Delete the book' />
                     </ControlButtons>
                 </TextDataWrapper>
             </DataWrapper>
