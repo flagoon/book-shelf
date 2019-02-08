@@ -9,4 +9,7 @@ export interface IBook {
     date: string;
     title: string;
     description: string;
+    isRead: boolean;
+    isArchived: boolean;
+    markedPage: number;
 }

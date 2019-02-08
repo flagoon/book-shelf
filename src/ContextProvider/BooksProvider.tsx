@@ -3,19 +3,19 @@ import React from 'react';
 import { C } from '../Constants';
 import { IBook } from '../typings/IBooks';
 
-interface IState {
+interface IContext {
     books: Map<string, IBook>;
     archivedBooks: Map<string, IBook>;
 }
 
-const defaultValue: IState = {
+const defaultValue: IContext = {
     books: Map<string, IBook>(),
     archivedBooks: Map<string, IBook>(),
 };
 
 const { Provider, Consumer } = React.createContext(defaultValue);
 
-class BooksProvider extends React.Component<{}, IState> {
+class BooksProvider extends React.Component<{}, IContext> {
     public state = {
         books: Map<string, IBook>(),
         archivedBooks: Map<string, IBook>(),
@@ -37,10 +37,12 @@ class BooksProvider extends React.Component<{}, IState> {
     }
 
     private getBooks = (source: string): IBook[] => {
+        const fetchedBooks = require('../mockedData/books.json');
         if (source === C.BOOKS_SOURCE) {
-            return require('../mockedData/books.json');
+            return fetchedBooks.filter((book: IBook) => book.isArchived === false);
+        } else {
+            return fetchedBooks.filter((book: IBook) => book.isArchived === true);
         }
-        return require('../mockedData/books.json');
     };
 
     private prepareMapForState = (books: IBook[]): Map<string, IBook> => {

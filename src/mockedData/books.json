@@ -9,6 +9,9 @@
         "author": "Robyn Morse",
         "date": "1970/7/3",
         "title": "Ionsequat voluptate id ullamco velit excepteur tempor.",
+        "isRead": false,
+        "isArchived": false,
+        "markedPage": 0,
         "description": "Sit mollit sit sunt est excepteur sit anim ad consequat anim sit pariatur. Ut do dolor nulla ut ipsum velit et quis veniam ex consequat deserunt. Amet ut id qui esse. Ut sunt minim aute consectetur proident deserunt aliquip occaecat amet consectetur duis. Incididunt voluptate mollit id ullamco labore sunt sunt occaecat fugiat ipsum non culpa nostrud officia.\r\n"
     },
     {
@@ -21,6 +24,9 @@
         "author": "Pitts Bird",
         "date": "1970/3/5",
         "title": "Deserunt sunt eiusmod.",
+        "isRead": true,
+        "isArchived": false,
+        "markedPage": 0,
         "description": "Est ea elit elit qui minim consectetur ipsum ea cupidatat. Officia ullamco ea consectetur non id eu velit sit sit. Elit laborum minim aliquip cillum ad. Exercitation pariatur consequat occaecat dolore mollit elit consectetur aliqua duis anim excepteur ea excepteur. Dolore elit voluptate ipsum elit est fugiat deserunt consectetur sit exercitation tempor pariatur nulla velit. Elit proident qui anim Lorem consectetur labore exercitation aliqua consectetur anim consequat. Est laboris officia voluptate et ipsum fugiat aute sit aliqua velit nisi quis reprehenderit.\r\n"
     },
     {
@@ -33,6 +39,9 @@
         "author": "Gay Wilkerson",
         "date": "1976/9/3",
         "title": "Iolor velit exercitation velit.",
+        "isRead": false,
+        "isArchived": false,
+        "markedPage": 0,
         "description": "Do anim ex velit ex consectetur consectetur non mollit laborum fugiat in. Non do quis laboris nisi non minim. Non qui sint veniam labore et ut. Ut exercitation aliqua deserunt qui ullamco aliqua pariatur aliquip proident voluptate magna amet laborum commodo.\r\n"
     },
     {
@@ -45,6 +54,9 @@
         "author": "Kinney Pacheco",
         "date": "1991/1/2",
         "title": "Nute cupidatat enim.",
+        "isRead": true,
+        "isArchived": false,
+        "markedPage": 0,
         "description": "Sunt esse anim culpa cillum non id enim tempor magna. Amet eiusmod magna minim deserunt officia deserunt culpa nisi esse veniam sunt eiusmod. Adipisicing pariatur eu dolor minim eu consequat esse anim laboris ex ipsum velit nisi labore. Ea laboris ea sint fugiat consequat ex in adipisicing labore tempor.\r\n"
     },
     {
@@ -57,6 +69,9 @@
         "author": "Mayer Reilly",
         "date": "2001/10/1",
         "title": "Sint elit ipsum enim voluptate.",
+        "isRead": false,
+        "isArchived": false,
+        "markedPage": 0,
         "description": "Fugiat cupidatat sunt id magna aliqua do exercitation Lorem irure duis. Pariatur do ut duis officia et. In reprehenderit cupidatat id deserunt ea anim exercitation et aliquip ullamco.\r\n"
     },
     {
@@ -69,6 +84,9 @@
         "author": "Fowler Hendrix",
         "date": "1991/8/3",
         "title": "Inim incididunt et irure nostrud sit culpa.",
+        "isRead": false,
+        "isArchived": false,
+        "markedPage": 0,
         "description": "Lorem aute consequat fugiat ex exercitation voluptate fugiat cupidatat aliqua ipsum aliqua aliqua eu aliqua. Dolor quis sit ullamco elit ullamco cillum est eiusmod dolore pariatur incididunt. Ipsum in ex Lorem sunt.\r\n"
     },
     {
@@ -81,6 +99,9 @@
         "author": "Katheryn Myers",
         "date": "1978/1/6",
         "title": "Lui mollit exercitation anim labore eiusmod velit.",
+        "isRead": true,
+        "isArchived": false,
+        "markedPage": 0,
         "description": "Do cupidatat sit aliquip nisi ad reprehenderit nulla eu ullamco do irure magna reprehenderit incididunt. Dolor et adipisicing culpa sit irure. Aliquip eu aliquip dolor tempor anim.\r\n"
     },
     {
@@ -93,6 +114,9 @@
         "author": "Hall Huff",
         "date": "2010/4/3",
         "title": "Dnim reprehenderit non aliquip deserunt.",
+        "isRead": true,
+        "isArchived": false,
+        "markedPage": 0,
         "description": "Et incididunt nisi tempor sit ipsum fugiat voluptate aliquip aute ex adipisicing reprehenderit nostrud. Laboris voluptate sunt magna proident ullamco nulla exercitation dolore deserunt. Lorem veniam labore enim tempor est pariatur officia ex ullamco eiusmod. Irure pariatur laboris dolor non elit proident sunt ipsum reprehenderit. Eu ipsum ad laboris sit ut in deserunt enim ullamco in est ipsum minim id. Laboris mollit mollit ex pariatur anim esse sit occaecat consectetur irure esse.\r\n"
     },
     {
@@ -105,6 +129,9 @@
         "author": "Earline Preston",
         "date": "1999/7/4",
         "title": "Dillum elit nostrud ad Lorem non.",
+        "isRead": true,
+        "isArchived": false,
+        "markedPage": 0,
         "description": "Officia nisi dolor fugiat fugiat aliqua consectetur labore. Et quis dolor incididunt id do. Deserunt ut sit consequat id sint adipisicing laborum fugiat cupidatat commodo. Ea velit nisi in consectetur consequat voluptate qui exercitation ex. Ullamco amet adipisicing culpa nostrud incididunt in ad in tempor qui.\r\n"
     },
     {
@@ -117,6 +144,9 @@
         "author": "Juarez Francis",
         "date": "2008/5/0",
         "title": "Dnim excepteur ex anim.",
+        "isRead": false,
+        "isArchived": false,
+        "markedPage": 0,
         "description": "Reprehenderit labore ut est reprehenderit cupidatat eiusmod sit esse cillum aute dolore incididunt. Est elit esse enim cupidatat aliqua veniam eu et ullamco ex fugiat. Tempor eu amet sint ex. Non non ad ipsum quis. Nostrud laboris magna in veniam esse duis proident nulla ex commodo elit dolore. Pariatur cillum nulla culpa consequat aliquip id do laboris nostrud occaecat. Occaecat dolore ipsum voluptate qui consectetur irure non dolore.\r\n"
     },
     {
@@ -129,6 +159,9 @@
         "author": "Margo Jacobson",
         "date": "1990/10/3",
         "title": "Eu Lorem ad proident.",
+        "isRead": true,
+        "isArchived": false,
+        "markedPage": 0,
         "description": "Exercitation consectetur eu adipisicing labore adipisicing nulla labore ea. Reprehenderit sit dolor mollit eiusmod minim do non commodo non est incididunt ullamco ut duis. Nisi ullamco aliquip commodo adipisicing incididunt exercitation elit. Nostrud dolor pariatur cupidatat ad duis aliqua quis duis cillum sunt deserunt. Ea elit labore proident ullamco minim proident.\r\n"
     },
     {
@@ -141,6 +174,9 @@
         "author": "Sabrina Hodges",
         "date": "1992/4/0",
         "title": "Caborum sint minim quis.",
+        "isRead": true,
+        "isArchived": true,
+        "markedPage": 0,
         "description": "Excepteur ullamco nostrud commodo do. Lorem commodo incididunt elit nostrud nisi. Occaecat duis sint est commodo voluptate Lorem veniam. Cupidatat reprehenderit adipisicing anim cupidatat ullamco id enim in consectetur aliquip officia. Esse pariatur nulla veniam anim.\r\n"
     },
     {
@@ -153,6 +189,9 @@
         "author": "Christian Delgado",
         "date": "1985/2/6",
         "title": "Oui occaecat aliqua.",
+        "isRead": false,
+        "isArchived": false,
+        "markedPage": 0,
         "description": "Dolore laborum reprehenderit commodo et culpa anim consequat amet exercitation cupidatat aliqua. Voluptate fugiat velit aute reprehenderit nulla officia. Nisi duis eiusmod laboris ullamco proident amet consequat sunt fugiat in officia non excepteur.\r\n"
     },
     {
@@ -165,6 +204,9 @@
         "author": "Mcleod Moore",
         "date": "2004/1/2",
         "title": "Odipisicing est fugiat sunt.",
+        "isRead": true,
+        "isArchived": false,
+        "markedPage": 0,
         "description": "Nostrud aliquip officia ea non incididunt voluptate enim Lorem veniam ullamco aute ad tempor reprehenderit. Lorem in mollit adipisicing eiusmod mollit id fugiat nostrud qui. Proident nulla elit do veniam veniam ipsum amet. Labore enim sint deserunt consectetur adipisicing eiusmod sit pariatur voluptate mollit deserunt.\r\n"
     },
     {
@@ -177,6 +219,9 @@
         "author": "Fisher Bauer",
         "date": "2010/4/3",
         "title": "Fdipisicing consequat eiusmod in fugiat id commodo.",
+        "isRead": true,
+        "isArchived": false,
+        "markedPage": 0,
         "description": "Officia reprehenderit exercitation esse nisi elit cupidatat enim sunt labore incididunt aliquip eiusmod. Sunt deserunt irure dolor qui nulla et duis dolore ut occaecat anim consectetur mollit. Voluptate nisi cillum ea dolor ipsum dolore est fugiat ex qui ut irure.\r\n"
     },
     {
@@ -189,6 +234,9 @@
         "author": "Cameron Estrada",
         "date": "1986/8/3",
         "title": "Iupidatat amet mollit.",
+        "isRead": true,
+        "isArchived": true,
+        "markedPage": 0,
         "description": "Aliqua velit sit culpa pariatur quis eiusmod tempor labore cillum deserunt sit pariatur. Exercitation esse excepteur deserunt laboris excepteur. Nostrud laboris veniam labore enim ea tempor sunt. Est magna voluptate nisi voluptate do quis ut in ut aliqua elit consequat pariatur tempor.\r\n"
     },
     {
@@ -201,6 +249,9 @@
         "author": "Cooley Obrien",
         "date": "2003/4/2",
         "title": "Consequat laborum aliqua proident commodo ullamco.",
+        "isRead": true,
+        "isArchived": false,
+        "markedPage": 0,
         "description": "Consectetur do magna amet sunt est commodo eu sit aliquip in labore tempor nostrud id. Magna fugiat qui sunt aute. Deserunt laboris duis eu nostrud Lorem do tempor ad dolor adipisicing. Nulla eu aute elit occaecat ut aliqua commodo. Adipisicing esse anim qui nostrud deserunt aliquip sit sunt adipisicing minim culpa consectetur labore. Minim adipisicing cillum sunt pariatur in sit velit consectetur proident fugiat pariatur culpa cupidatat duis.\r\n"
     },
     {
@@ -213,6 +264,9 @@
         "author": "Johanna Mcleod",
         "date": "1980/5/4",
         "title": "Amet consectetur quis fugiat et dolore non.",
+        "isRead": true,
+        "isArchived": true,
+        "markedPage": 0,
         "description": "Proident commodo quis ullamco adipisicing aliquip. Qui sunt ad sit veniam et aliquip do adipisicing ipsum consequat minim. Est Lorem incididunt qui ad eu voluptate nulla laborum officia mollit excepteur est. Proident officia culpa magna aliquip exercitation duis amet enim minim Lorem minim reprehenderit laborum. Minim cupidatat nostrud laborum eu eu.\r\n"
     },
     {
@@ -225,6 +279,9 @@
         "author": "Steele Joseph",
         "date": "2009/6/6",
         "title": "Eccaecat eu eiusmod aliqua.",
+        "isRead": true,
+        "isArchived": false,
+        "markedPage": 0,
         "description": "Deserunt eu laboris mollit laborum. Aute ea consectetur amet fugiat est sit et velit eu minim amet do. Proident dolor amet eu mollit deserunt aute voluptate ea. Commodo ipsum consectetur ullamco in cupidatat adipisicing velit ullamco do nisi pariatur ipsum quis ad. Culpa irure qui duis non. Irure ullamco veniam amet fugiat aute consequat exercitation. Culpa pariatur non duis ullamco occaecat officia nisi pariatur ipsum.\r\n"
     },
     {
@@ -237,6 +294,9 @@
         "author": "Conrad Buck",
         "date": "2011/3/6",
         "title": "Eeniam deserunt sit labore incididunt ullamco.",
+        "isRead": true,
+        "isArchived": true,
+        "markedPage": 0,
         "description": "Ullamco consequat enim consectetur voluptate sunt elit dolore id et. Reprehenderit proident quis non in enim. Labore dolor excepteur aliqua id elit nostrud deserunt non. Laboris et exercitation ut et. Anim sint tempor nulla adipisicing commodo deserunt exercitation eiusmod duis culpa. Aute eu velit occaecat sunt ea qui officia fugiat ex nulla quis esse occaecat.\r\n"
     }
 ]
