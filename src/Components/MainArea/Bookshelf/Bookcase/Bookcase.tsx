@@ -21,7 +21,7 @@ export const Bookcase = (props: IBookcaseProps) => {
     return (
         <BookcaseHolder>
             <DataWrapper>
-                <img src={book.picture} />
+                <img src={book.picture} alt='Cover image'/>
                 <TextDataWrapper>
                     <Title>{book.title}</Title>
                     <Author>Author: {book.author}</Author>
