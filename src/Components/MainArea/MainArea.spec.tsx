@@ -1,8 +1,8 @@
 import { mount } from 'enzyme';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import { NoMatch } from '../ErrorPages/404_page';
-import Bookshelf from "./Bookshelf/Bookshelf";
+import { NoMatch } from '../Common/ErrorPages/404_page';
+import Bookshelf from './Bookshelf/Bookshelf';
 import MainArea from './MainArea';
 
 describe('MainArea routes', () => {
@@ -10,7 +10,7 @@ describe('MainArea routes', () => {
         const wrapper = mount(
             <MemoryRouter initialEntries={['/bookshelf']}>
                 <MainArea />
-            </MemoryRouter>
+            </MemoryRouter>,
         );
         expect(wrapper.find(Bookshelf)).toHaveLength(1);
     });
@@ -19,7 +19,7 @@ describe('MainArea routes', () => {
         const wrapper = mount(
             <MemoryRouter initialEntries={['/wrongPath']}>
                 <MainArea />
-            </MemoryRouter>
+            </MemoryRouter>,
         );
         expect(wrapper.find(NoMatch)).toHaveLength(1);
     });

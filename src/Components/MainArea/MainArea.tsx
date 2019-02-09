@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { NoMatch } from '../ErrorPages/404_page';
+import { NoMatch } from '../Common/ErrorPages/404_page';
 import AddBookForm from './AddBookForm/AddBookForm';
 import Archive from './Archive/Archive';
 import Bookshelf from './Bookshelf/Bookshelf';
