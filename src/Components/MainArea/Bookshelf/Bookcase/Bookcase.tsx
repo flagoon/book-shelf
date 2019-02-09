@@ -1,6 +1,7 @@
 import React from 'react';
 import { IBook } from '../../../../typings/IBooks';
-import { StyledButton } from '../../../Button/Button';
+import { StyledButton } from '../../../Common/Button/Button';
+import EmojiGenerator from '../../../Common/EmojiGenerator/EmojiGenerator';
 import {
     Author,
     BookcaseHolder,
@@ -11,7 +12,6 @@ import {
     TextDataWrapper,
     Title,
 } from './Bookcase.styled';
-import { IsRead } from './IsRead';
 
 interface IBookcaseProps {
     book: IBook;
@@ -26,7 +26,7 @@ export const Bookcase = (props: IBookcaseProps) => {
                 <TextDataWrapper>
                     <Title>
                         {book.title}
-                        {book.isRead && <IsRead />}
+                        {book.isRead && <EmojiGenerator value='✔️' label='This book is read.' />}
                     </Title>
                     <Author>Author: {book.author}</Author>
                     <TechnicalBookData>
@@ -45,9 +45,28 @@ export const Bookcase = (props: IBookcaseProps) => {
                     </TechnicalBookData>
                     <BookDescription>{book.description}</BookDescription>
                     <ControlButtons>
-                        <StyledButton success value='🔖 Mark as read' />
-                        <StyledButton primary value='💾 Archive the book' />
-                        <StyledButton alert value='🗑 Delete the book' />
+                        {book.isArchived || (
+                            <>
+                                <StyledButton color='blue' onClick={() => console.log('clicked')}>
+                                    <EmojiGenerator value='📖' label='Mark the page' />
+                                    Mark the page
+                                </StyledButton>
+                                <StyledButton color='red' onClick={() => console.log('clicked')}>
+                                    <EmojiGenerator value='💾' label='Archive the book' />
+                                    Archive the book
+                                </StyledButton>
+                                <StyledButton color='green' onClick={() => console.log('clicked')}>
+                                    <EmojiGenerator value='🔖' label='Mark as read' />
+                                    Mark as read
+                                </StyledButton>
+                            </>
+                        )}
+                        {book.isArchived && (
+                            <StyledButton color='red' onClick={() => console.log('clicked')}>
+                                <EmojiGenerator value='🗑' label='Delete the book' />
+                                Mark as read
+                            </StyledButton>
+                        )}
                     </ControlButtons>
                 </TextDataWrapper>
             </DataWrapper>
