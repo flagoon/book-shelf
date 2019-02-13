@@ -69,7 +69,7 @@ export const Bookcase = (props: IBookcaseProps) => {
                                 {/* tslint:disable-next-line */}
                                 <StyledButton color='red' onClick={() => console.log('clicked')}>
                                     <EmojiGenerator value='🗑' label='Delete the book' />
-                                    Mark as read
+                                    Delete the book
                                 </StyledButton>
                             </>
                         )}
