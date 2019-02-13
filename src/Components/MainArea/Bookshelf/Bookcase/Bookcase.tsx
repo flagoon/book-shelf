@@ -47,14 +47,17 @@ export const Bookcase = (props: IBookcaseProps) => {
                     <ControlButtons>
                         {book.isArchived || (
                             <>
+                                {/* tslint:disable-next-line */}
                                 <StyledButton color='blue' onClick={() => console.log('clicked')}>
                                     <EmojiGenerator value='📖' label='Mark the page' />
                                     Mark the page
                                 </StyledButton>
+                                {/* tslint:disable-next-line */}
                                 <StyledButton color='red' onClick={() => console.log('clicked')}>
                                     <EmojiGenerator value='💾' label='Archive the book' />
                                     Archive the book
                                 </StyledButton>
+                                {/* tslint:disable-next-line */}
                                 <StyledButton color='green' onClick={() => console.log('clicked')}>
                                     <EmojiGenerator value='🔖' label='Mark as read' />
                                     Mark as read
@@ -62,10 +65,13 @@ export const Bookcase = (props: IBookcaseProps) => {
                             </>
                         )}
                         {book.isArchived && (
-                            <StyledButton color='red' onClick={() => console.log('clicked')}>
-                                <EmojiGenerator value='🗑' label='Delete the book' />
-                                Mark as read
-                            </StyledButton>
+                            <>
+                                {/* tslint:disable-next-line */}
+                                <StyledButton color='red' onClick={() => console.log('clicked')}>
+                                    <EmojiGenerator value='🗑' label='Delete the book' />
+                                    Mark as read
+                                </StyledButton>
+                            </>
                         )}
                     </ControlButtons>
                 </TextDataWrapper>
