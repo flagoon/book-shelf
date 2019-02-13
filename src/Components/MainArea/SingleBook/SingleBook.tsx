@@ -16,8 +16,8 @@ export const SingleBook = (props: IProps) => {
         <BooksConsumer>
             {context => {
                 {
-                    const { archivedBooks } = context;
-                    const archivedBook = archivedBooks.get(bookId);
+                    const { books } = context;
+                    const archivedBook = books.get(bookId);
                     if (archivedBook) {
                         return <Bookcase book={archivedBook} key={archivedBook.id} />;
                     }
