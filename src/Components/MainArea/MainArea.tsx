@@ -15,7 +15,7 @@ const MainArea = () => {
                 <Route path='/bookshelf' component={Bookshelf} />
                 <Route exact path='/archive' component={Archive} />
                 <Route path='/addbook' component={AddBookForm} />
-                <Route path='/archive/:bookId' component={SingleBook} />
+                <Route path='/book/:bookId' component={SingleBook} />
                 <Route component={NoMatch} />
             </Switch>
         </StyledMainArea>

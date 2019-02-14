@@ -11,7 +11,7 @@ interface IArchivedBook {
 export const ArchivedBook = (props: IArchivedBook) => {
     const { book } = props;
     return (
-        <StyledNavLink to={`/archive/${book.id}`}>
+        <StyledNavLink to={`/book/${book.id}`}>
             <BookRow>
                 <Title>{book.title}</Title>
                 <Author>{book.author}</Author>
