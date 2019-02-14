@@ -6,14 +6,19 @@ const Bookshelf = () => (
     <BooksConsumer>
         {context => {
             {
-                const { books } = context;
+                const { books, changeReadStatus, changeArchiveStatus, deleteBook } = context;
                 return (
                     <>
                         {books
                             .valueSeq()
-                            .filter(book => book.isArchived === false)
+                            .filter(book => !book.isArchived)
                             .map(book => (
-                                <Bookcase book={book} key={book.id} />
+                                <Bookcase
+                                    book={book}
+                                    key={book.id}
+                                    changeReadStatus={changeReadStatus}
+                                    changeArchiveStatus={changeArchiveStatus}
+                                    deleteBook={deleteBook}/>
                             ))}
                     </>
                 );
