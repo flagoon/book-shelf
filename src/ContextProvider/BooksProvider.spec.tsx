@@ -25,8 +25,7 @@ describe('BooksProvider', () => {
 
     describe('getBooks function', () => {
         it('should return list of books', () => {
-            const booksProvider = new BooksProvider({});
-            const newBooks = booksProvider.getBooks();
+            const newBooks = BooksProvider.getBooks();
             expect(newBooks).toEqual(mockBooks);
         });
     });
