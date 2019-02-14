@@ -16,10 +16,18 @@ export const SingleBook = (props: IProps) => {
         <BooksConsumer>
             {context => {
                 {
-                    const { books, deleteBook } = context;
+                    const { books, deleteBook, changeReadStatus, changeArchiveStatus } = context;
                     const archivedBook = books.get(bookId);
                     if (archivedBook) {
-                        return <Bookcase book={archivedBook} key={archivedBook.id} deleteBook={deleteBook} />;
+                        return (
+                            <Bookcase
+                                book={archivedBook}
+                                key={archivedBook.id}
+                                changeReadStatus={changeReadStatus}
+                                changeArchiveStatus={changeArchiveStatus}
+                                deleteBook={deleteBook}
+                            />
+                        );
                     }
                     return <NoBook>There is no book with that id!</NoBook>;
                 }
