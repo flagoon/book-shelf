@@ -28,7 +28,7 @@ export const Bookcase = (props: IBookcaseProps) => {
                 <img src={book.picture} alt='Cover image' />
                 <TextDataWrapper>
                     <Title>
-                        {book.title}
+                        <Link to={`/book/${book.id}`}>{book.title}</Link>
                         {book.isRead && <EmojiGenerator value='✔️' label='This book is read.' />}
                     </Title>
                     <Author>Author: {book.author}</Author>
