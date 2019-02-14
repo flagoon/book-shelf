@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import { IBook } from '../../../../typings/IBooks';
 import { StyledButton } from '../../../Common/Button/Button';
 import EmojiGenerator from '../../../Common/EmojiGenerator/EmojiGenerator';
@@ -39,7 +40,7 @@ export const Bookcase = (props: IBookcaseProps) => {
                 <img src={book.picture} alt='Cover image' />
                 <TextDataWrapper>
                     <Title>
-                        <Link to={`/book/${book.id}`}>{book.title}</Link>
+                        <StyledLink to={`/book/${book.id}`}>{book.title}</StyledLink>
                         {book.isRead && <EmojiGenerator value='✔️' label='This book is read.' />}
                     </Title>
                     <Author>Author: {book.author}</Author>
@@ -93,3 +94,13 @@ export const Bookcase = (props: IBookcaseProps) => {
         </BookcaseHolder>
     );
 };
+
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+        background-color: darkblue;
+        color: white;
+    }
+`;
