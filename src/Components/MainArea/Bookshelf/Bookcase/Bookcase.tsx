@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { IBook } from '../../../../typings/IBooks';
 import { StyledButton } from '../../../Common/Button/Button';
 import EmojiGenerator from '../../../Common/EmojiGenerator/EmojiGenerator';
@@ -22,6 +23,16 @@ interface IBookcaseProps {
 
 export const Bookcase = (props: IBookcaseProps) => {
     const { book, changeReadStatus, changeArchiveStatus, deleteBook } = props;
+    const handleBookDelete = (): void => {
+        deleteBook(book.id);
+    };
+    const handleBookArchive = (): void => {
+        changeArchiveStatus(book.id);
+    };
+    const handleBookRead = (): void => {
+        changeReadStatus(book.id);
+    };
+
     return (
         <BookcaseHolder>
             <DataWrapper>
@@ -50,18 +61,15 @@ export const Bookcase = (props: IBookcaseProps) => {
                     <ControlButtons>
                         {book.isArchived || (
                             <>
-                                {/* tslint:disable-next-line */}
-                                <StyledButton color='blue' onClick={() => changeReadStatus(book.id)}>
+                                <StyledButton color='blue' onClick={handleBookRead}>
                                     <EmojiGenerator value='📖' label='Mark the page' />
                                     Mark the page
                                 </StyledButton>
-                                {/* tslint:disable-next-line */}
-                                <StyledButton color='red' onClick={() => changeArchiveStatus(book.id)}>
+                                <StyledButton color='red' onClick={handleBookArchive}>
                                     <EmojiGenerator value='💾' label='Archive the book' />
                                     Archive the book
                                 </StyledButton>
-                                {/* tslint:disable-next-line */}
-                                <StyledButton color='green' onClick={() => console.log('clicked')}>
+                                <StyledButton color='green' onClick={handleBookRead}>
                                     <EmojiGenerator value='🔖' label='Mark as read' />
                                     Mark as read
                                 </StyledButton>
@@ -69,10 +77,13 @@ export const Bookcase = (props: IBookcaseProps) => {
                         )}
                         {book.isArchived && (
                             <>
-                                {/* tslint:disable-next-line */}
-                                <StyledButton color='red' onClick={() => deleteBook(book.id)}>
+                                <StyledButton color='red' onClick={handleBookDelete}>
                                     <EmojiGenerator value='🗑' label='Delete the book' />
                                     Delete the book
+                                </StyledButton>
+                                <StyledButton color='limeGreen' onClick={handleBookArchive}>
+                                    <EmojiGenerator value='💾' label='Archive the book' />
+                                    Read again
                                 </StyledButton>
                             </>
                         )}
