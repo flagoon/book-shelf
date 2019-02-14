@@ -15,10 +15,13 @@ import {
 
 interface IBookcaseProps {
     book: IBook;
+    changeReadStatus?: any;
+    changeArchiveStatus?: any;
+    deleteBook?: any;
 }
 
 export const Bookcase = (props: IBookcaseProps) => {
-    const { book } = props;
+    const { book, changeReadStatus, changeArchiveStatus, deleteBook } = props;
     return (
         <BookcaseHolder>
             <DataWrapper>
@@ -48,12 +51,12 @@ export const Bookcase = (props: IBookcaseProps) => {
                         {book.isArchived || (
                             <>
                                 {/* tslint:disable-next-line */}
-                                <StyledButton color='blue' onClick={() => console.log('clicked')}>
+                                <StyledButton color='blue' onClick={() => changeReadStatus(book.id)}>
                                     <EmojiGenerator value='📖' label='Mark the page' />
                                     Mark the page
                                 </StyledButton>
                                 {/* tslint:disable-next-line */}
-                                <StyledButton color='red' onClick={() => console.log('clicked')}>
+                                <StyledButton color='red' onClick={() => changeArchiveStatus(book.id)}>
                                     <EmojiGenerator value='💾' label='Archive the book' />
                                     Archive the book
                                 </StyledButton>
@@ -67,7 +70,7 @@ export const Bookcase = (props: IBookcaseProps) => {
                         {book.isArchived && (
                             <>
                                 {/* tslint:disable-next-line */}
-                                <StyledButton color='red' onClick={() => console.log('clicked')}>
+                                <StyledButton color='red' onClick={() => deleteBook(book.id)}>
                                     <EmojiGenerator value='🗑' label='Delete the book' />
                                     Delete the book
                                 </StyledButton>
