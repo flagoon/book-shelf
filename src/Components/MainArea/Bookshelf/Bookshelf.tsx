@@ -18,7 +18,8 @@ const Bookshelf = () => (
                                     key={book.id}
                                     changeReadStatus={changeReadStatus}
                                     changeArchiveStatus={changeArchiveStatus}
-                                    deleteBook={deleteBook}/>
+                                    deleteBook={deleteBook}
+                                />
                             ))}
                     </>
                 );
