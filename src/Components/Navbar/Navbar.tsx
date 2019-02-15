@@ -10,9 +10,6 @@ const Navbar = () => (
         <Link to='/archive' style={{ textDecoration: 'none' }}>
             <HeaderLink>Archive</HeaderLink>
         </Link>
-        <Link to='/addbook' style={{ textDecoration: 'none' }}>
-            <HeaderLink>Add book</HeaderLink>
-        </Link>
     </StyledHeader>
 );
 

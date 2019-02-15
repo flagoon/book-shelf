@@ -3,8 +3,9 @@ import styled from 'styled-components';
 export const BookcaseHolder = styled.ul`
     box-sizing: border-box;
     list-style-type: none;
-    list-style-position: inside;
-    width: 820px;
+    width: calc(820px - 2rem);
+    margin-left: 2rem;
+    padding: 0;
 `;
 
 export const DataWrapper = styled.div`
@@ -31,8 +32,7 @@ export const Author = styled.li`
 
 export const TechnicalBookData = styled.div`
     display: flex;
-    flex-direction: 'row';
-    border: '1px solid red';
+    flex-direction: row;
     color: #044;
     margin-bottom: 1rem;
 
