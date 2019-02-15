@@ -1,7 +1,8 @@
 import React from 'react';
-import { ArchivedBook } from '../../../Components/MainArea/Archive/ArchivedBook/ArchivedBook';
-import { Author, FirstRow, ISBN, Title } from '../../../Components/MainArea/Archive/ArchivedBook/ArchivedBook.styled';
+import { ArchivedBook } from './ArchivedBook/ArchivedBook';
+import { Author, FirstRow, ISBN, Title } from './ArchivedBook/ArchivedBook.styled';
 import { BooksConsumer } from '../../../ContextProvider/BooksProvider';
+import {MainBoxArchive} from "./Archive.styled";
 
 const Archive = () => (
     <BooksConsumer>
@@ -9,7 +10,7 @@ const Archive = () => (
             {
                 const { books } = context;
                 return (
-                    <>
+                    <MainBoxArchive>
                         <FirstRow>
                             <Title>Title</Title>
                             <Author>Author</Author>
@@ -21,7 +22,7 @@ const Archive = () => (
                             .map(book => (
                                 <ArchivedBook book={book} key={book.id} />
                             ))}
-                    </>
+                    </MainBoxArchive>
                 );
             }
         }}
