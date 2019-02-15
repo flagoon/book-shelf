@@ -33,8 +33,10 @@ export const Author = styled.li`
 export const TechnicalBookData = styled.div`
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     color: #044;
     margin-bottom: 1rem;
+    width: 450px;
 
     & span {
         font-weight: bold;
