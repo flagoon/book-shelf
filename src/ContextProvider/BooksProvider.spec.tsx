@@ -39,7 +39,7 @@ describe('BooksProvider', () => {
                     '1': { id: '1', title: 'mockName' },
                     '2': { id: '2', title: 'mockName2' },
                     '3': { id: '3', title: 'mockName3' },
-                }),
+                })
             );
         });
     });

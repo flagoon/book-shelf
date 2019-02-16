@@ -9,8 +9,8 @@ describe('MainArea routes', () => {
     it('should render component with valid path', () => {
         const wrapper = mount(
             <MemoryRouter initialEntries={['/bookshelf']}>
-                <MainArea />
-            </MemoryRouter>,
+                <MainArea showNotification={jest.fn()}/>
+            </MemoryRouter>
         );
         expect(wrapper.find(Bookshelf)).toHaveLength(1);
     });
@@ -18,8 +18,8 @@ describe('MainArea routes', () => {
     it('should render NoMatch component, when path is wrong', () => {
         const wrapper = mount(
             <MemoryRouter initialEntries={['/wrongPath']}>
-                <MainArea />
-            </MemoryRouter>,
+                <MainArea  showNotification={jest.fn()}/>
+            </MemoryRouter>
         );
         expect(wrapper.find(NoMatch)).toHaveLength(1);
     });
