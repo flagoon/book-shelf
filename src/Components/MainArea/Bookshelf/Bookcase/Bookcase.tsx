@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { ShowNotificationType } from '../../../../ContextProvider/NotificationProvider';
 import { IBook } from '../../../../typings/IBooks';
 import { StyledButton } from '../../../Common/Button/Button';
 import EmojiGenerator from '../../../Common/EmojiGenerator/EmojiGenerator';
@@ -17,21 +18,33 @@ import {
 
 interface IBookcaseProps {
     book: IBook;
-    changeReadStatus?: any;
-    changeArchiveStatus?: any;
-    deleteBook?: any;
+    changeReadStatus?: (id: string) => void;
+    changeArchiveStatus?: (id: string) => void;
+    deleteBook?: (id: string) => void;
+    showNotification: (type: ShowNotificationType, bookId?: string) => void;
 }
 
 export const Bookcase = (props: IBookcaseProps) => {
-    const { book, changeReadStatus, changeArchiveStatus, deleteBook } = props;
-    const handleBookDelete = (): void => {
-        deleteBook(book.id);
+    const { book, changeReadStatus, changeArchiveStatus, deleteBook, showNotification } = props;
+
+    const handleBookDelete = (e: MouseEvent): void => {
+        e.stopPropagation();
+        showNotification('DELETE');
+        deleteBook!(book.id);
     };
-    const handleBookArchive = (): void => {
-        changeArchiveStatus(book.id);
+    const handleBookArchive = (e: MouseEvent): void => {
+        e.stopPropagation();
+        showNotification('ARCHIVE');
+        changeArchiveStatus!(book.id);
     };
-    const handleBookRead = (): void => {
-        changeReadStatus(book.id);
+    const handleBookRead = (e: MouseEvent): void => {
+        e.stopPropagation();
+        changeReadStatus!(book.id);
+    };
+
+    const handlePageMark = (e: MouseEvent): void => {
+        e.stopPropagation();
+        showNotification('MARK_PAGE', book.id);
     };
 
     return (
@@ -40,15 +53,8 @@ export const Bookcase = (props: IBookcaseProps) => {
                 <img src={book.picture} alt="Cover image" />
                 <TextDataWrapper>
                     <Title>
-                        <StyledLink to={`/book/${book.id}`}>
-                            {book.title}
-                        </StyledLink>
-                        {book.isRead && (
-                            <EmojiGenerator
-                                value="✔️"
-                                label="This book is read."
-                            />
-                        )}
+                        <StyledLink to={`/book/${book.id}`}>{book.title}</StyledLink>
+                        {book.isRead && <EmojiGenerator value="✔️" label="This book is read." />}
                     </Title>
                     <Author>Author: {book.author}</Author>
                     <TechnicalBookData>
@@ -70,61 +76,32 @@ export const Bookcase = (props: IBookcaseProps) => {
                     </TechnicalBookData>
                     <BookDescription>{book.description}</BookDescription>
                     <ControlButtons>
-                        {book.isArchived || (
+                        {book.isArchived ? (
                             <>
-                                <StyledButton
-                                    color="blue"
-                                    onClick={handleBookRead}
-                                >
-                                    <EmojiGenerator
-                                        value="📖"
-                                        label="Mark the page"
-                                    />
-                                    Mark the page
-                                </StyledButton>
-                                <StyledButton
-                                    color="red"
-                                    onClick={handleBookArchive}
-                                >
-                                    <EmojiGenerator
-                                        value="💾"
-                                        label="Archive the book"
-                                    />
-                                    Archive the book
-                                </StyledButton>
-                                <StyledButton
-                                    color="green"
-                                    onClick={handleBookRead}
-                                >
-                                    <EmojiGenerator
-                                        value="🔖"
-                                        label="Mark as read"
-                                    />
-                                    Mark as read
+                                <Link to={'/bookshelf'} style={{ marginRight: '0.5rem' }}>
+                                    <StyledButton color="red" onClick={handleBookDelete}>
+                                        <EmojiGenerator value="🗑" label="Delete the book" />
+                                        Delete the book
+                                    </StyledButton>
+                                </Link>
+                                <StyledButton color="limeGreen" onClick={handleBookArchive}>
+                                    <EmojiGenerator value="💾" label="Archive the book" />
+                                    Read again
                                 </StyledButton>
                             </>
-                        )}
-                        {book.isArchived && (
+                        ) : (
                             <>
-                                <StyledButton
-                                    color="red"
-                                    onClick={handleBookDelete}
-                                >
-                                    <EmojiGenerator
-                                        value="🗑"
-                                        label="Delete the book"
-                                    />
-                                    Delete the book
+                                <StyledButton color="blue" onClick={handlePageMark}>
+                                    <EmojiGenerator value="📖" label="Mark the page" />
+                                    Mark the page
                                 </StyledButton>
-                                <StyledButton
-                                    color="limeGreen"
-                                    onClick={handleBookArchive}
-                                >
-                                    <EmojiGenerator
-                                        value="💾"
-                                        label="Archive the book"
-                                    />
-                                    Read again
+                                <StyledButton color="red" onClick={handleBookArchive}>
+                                    <EmojiGenerator value="💾" label="Archive the book" />
+                                    Archive the book
+                                </StyledButton>
+                                <StyledButton color="green" onClick={handleBookRead}>
+                                    <EmojiGenerator value="🔖" label="Mark as read" />
+                                    Mark as read
                                 </StyledButton>
                             </>
                         )}

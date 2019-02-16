@@ -7,7 +7,7 @@ interface IEmojiGeneratorProps {
 }
 
 const EmojiGenerator = ({ value, label }: IEmojiGeneratorProps) => (
-    <EmojiContainer aria-label={label ? label : ''} aria-hidden={label ? false : true} role='image'>
+    <EmojiContainer aria-label={label ? label : ''} aria-hidden={!label} role="image">
         {value}
     </EmojiContainer>
 );
