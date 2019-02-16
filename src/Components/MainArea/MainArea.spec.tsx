@@ -10,7 +10,7 @@ describe('MainArea routes', () => {
         const wrapper = mount(
             <MemoryRouter initialEntries={['/bookshelf']}>
                 <MainArea />
-            </MemoryRouter>,
+            </MemoryRouter>
         );
         expect(wrapper.find(Bookshelf)).toHaveLength(1);
     });
@@ -19,7 +19,7 @@ describe('MainArea routes', () => {
         const wrapper = mount(
             <MemoryRouter initialEntries={['/wrongPath']}>
                 <MainArea />
-            </MemoryRouter>,
+            </MemoryRouter>
         );
         expect(wrapper.find(NoMatch)).toHaveLength(1);
     });

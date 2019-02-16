@@ -1,14 +1,14 @@
 import React from 'react';
+import {BooksConsumer, IBookContext} from '../../../ContextProvider/BooksProvider';
+import {MainBoxArchive} from "./Archive.styled";
 import { ArchivedBook } from './ArchivedBook/ArchivedBook';
 import { Author, FirstRow, ISBN, Title } from './ArchivedBook/ArchivedBook.styled';
-import { BooksConsumer } from '../../../ContextProvider/BooksProvider';
-import {MainBoxArchive} from "./Archive.styled";
 
 const Archive = () => (
     <BooksConsumer>
-        {context => {
+        {(context) => {
             {
-                const { books } = context;
+                const { books } = context as IBookContext;
                 return (
                     <MainBoxArchive>
                         <FirstRow>
@@ -18,8 +18,8 @@ const Archive = () => (
                         </FirstRow>
                         {books
                             .valueSeq()
-                            .filter(book => book.isArchived === true)
-                            .map(book => (
+                            .filter((book) => book.isArchived)
+                            .map((book) => (
                                 <ArchivedBook book={book} key={book.id} />
                             ))}
                     </MainBoxArchive>
