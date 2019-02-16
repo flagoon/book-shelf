@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import { INotificationContext, NotificationConsumer } from '../../ContextProvider/NotificationProvider';
-import AddBookForm from '../MainArea/AddBookForm/AddBookForm';
 import MarkPage from './MarkPage/MarkPage';
 import { NotificationWrapper, OverlayBox } from './NotificationBox.styled';
 import SimpleMessage from './SimpleMessage/SimpleMessage';
@@ -49,7 +48,7 @@ class NotificationBox extends PureComponent<INotificationBoxProps, {}> {
                                                 <SimpleMessage
                                                     bookId={bookId}
                                                     type={'delete'}
-                                                    message={'testMessage'}
+                                                    message={'testMessege'}
                                                 />
                                             );
                                         case 'ARCHIVE':
@@ -61,9 +60,9 @@ class NotificationBox extends PureComponent<INotificationBoxProps, {}> {
                                                 />
                                             );
                                         case 'MARK_PAGE':
-                                            return <MarkPage bookId={bookId} hideNotification={hideNotification} />;
+                                            return <MarkPage bookId={bookId} hideNotification={hideNotification}/>;
                                         case 'SHOW_FORM':
-                                            return <AddBookForm hideNotification={hideNotification}/>;
+                                            return <div>Form</div>;
                                         default:
                                             return undefined;
                                     }

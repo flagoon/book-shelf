@@ -4,7 +4,7 @@ import { BooksConsumer } from '../../../ContextProvider/BooksProvider';
 const AddBookForm = () => {
     return (
         <BooksConsumer>
-            {context => {
+            {(context) => {
                 return <div>{JSON.stringify(context)}</div>;
             }}
         </BooksConsumer>

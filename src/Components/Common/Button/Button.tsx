@@ -4,8 +4,8 @@ import styled from 'styled-components';
 interface IButton {
     color: string;
     children: ReactNode;
-    className: string;
-    onClick: () => MouseEvent;
+    className?: string;
+    onClick?: () => MouseEvent;
     [key: string]: ReactNode | string;
 }
 
