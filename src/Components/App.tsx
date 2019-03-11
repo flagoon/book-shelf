@@ -20,12 +20,16 @@ const App = () => {
                             // notificationContext is type INotificationContext or undefined. Destructuring is impossible
                             // because isShown or hideNotification is not present in type undefined. We need to destructure
                             // those parameters from variable that has type cast (as INotificationContext).
-                            const { isShown, hideNotification } = notificationContext as INotificationContext;
-                            return isShown && <NotificationBox handleClose={hideNotification} />;
+                            const { isShown, hideNotification, showNotification } = notificationContext as INotificationContext;
+                            return (
+                                <>
+                                    {isShown && <NotificationBox handleClose={hideNotification} />}
+                                    <Navbar />
+                                    <MainArea showNotification={showNotification}/>
+                                </>
+                            );
                         }}
                     </NotificationConsumer>
-                    <Navbar />
-                    <MainArea />
                 </BooksProvider>
             </NotificationProvider>
         </StyledMain>
