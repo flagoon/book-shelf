@@ -4,11 +4,12 @@ export const StyledMainArea = styled.div`
     width: 820px;
 `;
 
-export const AddBookButton = styled.div`
+export const AddBookButton = styled.button`
     width: 170px;
     padding: 1rem;
     margin: 0.5rem 0 0.5rem 2rem;
     background-color: darkgreen;
+    border: 0;
     border-radius: 3px;
     color: white;
     font-size: 1.5rem;

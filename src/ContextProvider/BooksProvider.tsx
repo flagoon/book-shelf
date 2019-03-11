@@ -8,12 +8,14 @@ export interface IBookContext extends IBooksProviderState {
     deleteBook: (id: string) => void;
     onMarkPageSubmit: (event: FormEvent<HTMLFormElement>) => void;
     onMarkPageChange: (event: FormEvent<HTMLInputElement>, id: string) => void;
+    onFormValueChange: (event: FormEvent<HTMLInputElement | HTMLSelectElement>) => void;
 }
 
 interface IBooksProviderState {
     books: Map<string, IBook>;
     tempMarkedPage: number;
     tempBookId: string;
+    newBook: Partial<IBook>;
 }
 
 const defaultValue = {
@@ -22,6 +24,7 @@ const defaultValue = {
     deleteBook: () => undefined,
     onMarkPageSubmit: () => undefined,
     onMarkPageChange: () => undefined,
+    onFormValueChange: () => undefined,
     books: Map({
         '1': {
             id: '1',
@@ -41,6 +44,16 @@ const defaultValue = {
     }),
     tempMarkedPage: 0,
     tempBookId: '',
+    newBook: {
+        author: '',
+        picture: '',
+        pages: 0,
+        cover: '',
+        isbn: '',
+        date: '',
+        title: '',
+        description: '',
+    },
 };
 const { Provider, Consumer } = React.createContext<IBookContext>(defaultValue);
 
@@ -55,12 +68,14 @@ class BooksProvider extends React.Component<{}, IBooksProviderState> {
             books: defaultValue.books,
             tempMarkedPage: defaultValue.tempMarkedPage,
             tempBookId: defaultValue.tempBookId,
+            newBook: defaultValue.newBook,
         };
         this.changeReadStatus = this.changeReadStatus.bind(this);
         this.changeArchiveStatus = this.changeArchiveStatus.bind(this);
         this.deleteBook = this.deleteBook.bind(this);
         this.onMarkPageSubmit = this.onMarkPageSubmit.bind(this);
         this.onMarkPageChange = this.onMarkPageChange.bind(this);
+        this.onFormValueChange = this.onFormValueChange.bind(this);
     }
 
     public componentDidMount() {
@@ -94,7 +109,7 @@ class BooksProvider extends React.Component<{}, IBooksProviderState> {
 
     public onMarkPageSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        if(this.state.tempBookId) {
+        if (this.state.tempBookId) {
             const book = this.state.books.get(this.state.tempBookId);
             const newBook: IBook = { ...(book as IBook), markedPage: this.state.tempMarkedPage };
             const newBooks = this.state.books.set(this.state.tempBookId, newBook);
@@ -108,11 +123,19 @@ class BooksProvider extends React.Component<{}, IBooksProviderState> {
         this.setState({ ...this.state, tempBookId: id, tempMarkedPage: parseInt(target.value, 10) });
     }
 
+    public onFormValueChange(e: FormEvent<HTMLInputElement | HTMLSelectElement>) {
+        const target = e.target as HTMLInputElement | HTMLSelectElement;
+        const { newBook } = JSON.parse(JSON.stringify(this.state));
+        newBook[target.name] = target.value;
+        this.setState({ ...this.state, newBook });
+    }
+
     public render() {
         return (
             <Provider
                 value={{
                     books: this.state.books,
+                    newBook: this.state.newBook,
                     tempMarkedPage: this.state.tempMarkedPage,
                     tempBookId: this.state.tempBookId,
                     changeReadStatus: this.changeReadStatus,
@@ -120,6 +143,7 @@ class BooksProvider extends React.Component<{}, IBooksProviderState> {
                     deleteBook: this.deleteBook,
                     onMarkPageSubmit: this.onMarkPageSubmit,
                     onMarkPageChange: this.onMarkPageChange,
+                    onFormValueChange: this.onFormValueChange,
                 }}
             >
                 {this.props.children}
