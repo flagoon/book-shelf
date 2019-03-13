@@ -8,7 +8,8 @@ export interface IBookContext extends IBooksProviderState {
     deleteBook: (id: string) => void;
     onMarkPageSubmit: (event: FormEvent<HTMLFormElement>) => void;
     onMarkPageChange: (event: FormEvent<HTMLInputElement>, id: string) => void;
-    onFormValueChange: (event: FormEvent<HTMLInputElement | HTMLSelectElement>) => void;
+    onFormValueChange: (event: FormEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => void;
+    onNewBookFormSubmit: (event: FormEvent<HTMLFormElement>) => void;
 }
 
 interface IBooksProviderState {
@@ -25,6 +26,7 @@ const defaultValue = {
     onMarkPageSubmit: () => undefined,
     onMarkPageChange: () => undefined,
     onFormValueChange: () => undefined,
+    onNewBookFormSubmit: () => undefined,
     books: Map({
         '1': {
             id: '1',
@@ -76,6 +78,7 @@ class BooksProvider extends React.Component<{}, IBooksProviderState> {
         this.onMarkPageSubmit = this.onMarkPageSubmit.bind(this);
         this.onMarkPageChange = this.onMarkPageChange.bind(this);
         this.onFormValueChange = this.onFormValueChange.bind(this);
+        this.onNewBookFormSubmit = this.onNewBookFormSubmit.bind(this);
     }
 
     public componentDidMount() {
@@ -123,11 +126,28 @@ class BooksProvider extends React.Component<{}, IBooksProviderState> {
         this.setState({ ...this.state, tempBookId: id, tempMarkedPage: parseInt(target.value, 10) });
     }
 
-    public onFormValueChange(e: FormEvent<HTMLInputElement | HTMLSelectElement>) {
-        const target = e.target as HTMLInputElement | HTMLSelectElement;
+    public onFormValueChange(e: FormEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
+        const target = e.target as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
         const { newBook } = JSON.parse(JSON.stringify(this.state));
         newBook[target.name] = target.value;
         this.setState({ ...this.state, newBook });
+    }
+
+    public onNewBookFormSubmit(e: FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        const id = Math.ceil(Math.random() * 1000);
+        const index = this.state.books.size + 1;
+        const isRead = false;
+        const isArchived = false;
+        const markedPage = 0;
+        const updatedBooks = this.state.books.set((id as unknown) as string, {
+            ...(this.state.newBook as IBook),
+            index,
+            isRead,
+            isArchived,
+            markedPage,
+        });
+        this.setState({...this.state, books: updatedBooks})
     }
 
     public render() {
@@ -144,6 +164,7 @@ class BooksProvider extends React.Component<{}, IBooksProviderState> {
                     onMarkPageSubmit: this.onMarkPageSubmit,
                     onMarkPageChange: this.onMarkPageChange,
                     onFormValueChange: this.onFormValueChange,
+                    onNewBookFormSubmit: this.onNewBookFormSubmit,
                 }}
             >
                 {this.props.children}
