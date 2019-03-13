@@ -1,11 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
 import { BooksConsumer } from '../../../ContextProvider/BooksProvider';
+import { StyledButton } from '../../Common/Button/Button';
+import { StyledForm, StyledFormElementContainer } from './AddBookForm.styled';
 
 const AddBookForm = () => {
     return (
         <BooksConsumer>
             {(context) => {
+                const { title, author, picture, pages, date, isbn, description } = context.newBook;
                 return (
                     <StyledForm>
                         <StyledFormElementContainer>
@@ -15,7 +17,7 @@ const AddBookForm = () => {
                                     type={'text'}
                                     id={'title'}
                                     name={'title'}
-                                    value={context.newBook.title}
+                                    value={title}
                                     onChange={context.onFormValueChange}
                                 />
                             </label>
@@ -27,7 +29,7 @@ const AddBookForm = () => {
                                     type={'text'}
                                     id={'author'}
                                     name={'author'}
-                                    value={context.newBook.author}
+                                    value={author}
                                     onChange={context.onFormValueChange}
                                 />
                             </label>
@@ -43,12 +45,12 @@ const AddBookForm = () => {
                         </StyledFormElementContainer>
                         <StyledFormElementContainer>
                             <label htmlFor={'picture'}>
-                                <span>Picture:</span>
+                                <span>Picture (url):</span>
                                 <input
                                     type={'url'}
                                     id={'picture'}
                                     name={'picture'}
-                                    value={context.newBook.picture}
+                                    value={picture}
                                     onChange={context.onFormValueChange}
                                 />
                             </label>
@@ -60,46 +62,51 @@ const AddBookForm = () => {
                                     type={'number'}
                                     id={'pages'}
                                     name={'pages'}
-                                    value={context.newBook.pages}
+                                    value={pages}
                                     onChange={context.onFormValueChange}
                                 />
                             </label>
                         </StyledFormElementContainer>
+                        <StyledFormElementContainer>
+                            <label htmlFor={'date'}>
+                                <span>Date:</span>
+                                <input
+                                    type={'date'}
+                                    id={'date'}
+                                    name={'date'}
+                                    value={date}
+                                    onChange={context.onFormValueChange}
+                                />
+                            </label>
+                        </StyledFormElementContainer>
+                        <StyledFormElementContainer>
+                            <label htmlFor={'isbn'}>
+                                <span>ISBN:</span>
+                                <input
+                                    type={'text'}
+                                    id={'isbn'}
+                                    name={'isbn'}
+                                    value={isbn}
+                                    onChange={context.onFormValueChange}
+                                />
+                            </label>
+                        </StyledFormElementContainer>
+                        <StyledFormElementContainer>
+                            <label htmlFor={'description'}>
+                                <span>Description:</span>
+                                <textarea id={'description'} onChange={context.onFormValueChange}>
+                                    {description}
+                                </textarea>
+                            </label>
+                        </StyledFormElementContainer>
+                        <StyledButton color={'blue'} type={'submit'}>
+                            Submit
+                        </StyledButton>
                     </StyledForm>
                 );
             }}
         </BooksConsumer>
     );
 };
-
-const StyledForm = styled.form`
-    display: flex;
-    flex-direction: column;
-`;
-
-const StyledFormElementContainer = styled.div`
-    display: flex;
-    margin: 0.5rem;
-    & label {
-        display: flex;
-        width: 20rem;
-
-        & span {
-            margin: 5px auto 5px 5px;
-        }
-
-        & *:not(span) {
-            width: 200px;
-            border: 0;
-            border-bottom: 1px solid black;
-            background-color: white;
-            padding-left: 15px;
-        }
-
-        & input {
-            margin-left: 5px;
-        }
-    }
-`;
 
 export default AddBookForm;
