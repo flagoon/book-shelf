@@ -8,8 +8,9 @@ const AddBookForm = () => {
         <BooksConsumer>
             {(context) => {
                 const { title, author, picture, pages, date, isbn, description } = context.newBook;
+                const { onNewBookFormSubmit } = context;
                 return (
-                    <StyledForm>
+                    <StyledForm onSubmit={onNewBookFormSubmit}>
                         <StyledFormElementContainer>
                             <label htmlFor={'title'}>
                                 <span>Title:</span>
@@ -94,7 +95,7 @@ const AddBookForm = () => {
                         <StyledFormElementContainer>
                             <label htmlFor={'description'}>
                                 <span>Description:</span>
-                                <textarea id={'description'} onChange={context.onFormValueChange}>
+                                <textarea id={'description'} name={'description'} onChange={context.onFormValueChange}>
                                     {description}
                                 </textarea>
                             </label>
