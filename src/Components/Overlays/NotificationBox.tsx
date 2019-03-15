@@ -63,7 +63,7 @@ class NotificationBox extends PureComponent<INotificationBoxProps, {}> {
                                         case 'MARK_PAGE':
                                             return <MarkPage bookId={bookId} hideNotification={hideNotification} />;
                                         case 'SHOW_FORM':
-                                            return <AddBookForm />;
+                                            return <AddBookForm hideNotification={hideNotification}/>;
                                         default:
                                             return undefined;
                                     }
