@@ -1,16 +1,25 @@
-import React from 'react';
+import React, {FormEvent} from 'react';
 import { BooksConsumer } from '../../../ContextProvider/BooksProvider';
 import { StyledButton } from '../../Common/Button/Button';
 import { StyledForm, StyledFormElementContainer } from './AddBookForm.styled';
 
-const AddBookForm = () => {
+interface IAddBookFormProps {
+    hideNotification: () => void;
+}
+
+const AddBookForm = ({hideNotification}: IAddBookFormProps) => {
     return (
         <BooksConsumer>
             {(context) => {
                 const { title, author, picture, pages, date, isbn, description } = context.newBook;
                 const { onNewBookFormSubmit } = context;
+                const submitWithHideNotification = (e: FormEvent<HTMLFormElement>): void | undefined => {
+                    e.preventDefault();
+                    onNewBookFormSubmit(e);
+                    hideNotification();
+                };
                 return (
-                    <StyledForm onSubmit={onNewBookFormSubmit}>
+                    <StyledForm onSubmit={submitWithHideNotification}>
                         <StyledFormElementContainer>
                             <label htmlFor={'title'}>
                                 <span>Title:</span>
