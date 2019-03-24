@@ -4,15 +4,16 @@ import styled from 'styled-components';
 interface IButton {
     color: string;
     children: ReactNode;
+    type: string;
     className?: string;
     onClick?: () => MouseEvent;
     [key: string]: ReactNode | string;
 }
 
 export const Button = (props: IButton) => {
-    const { children, className, onClick } = props;
+    const { children, className, onClick, type } = props;
     return (
-        <button className={className} onClick={onClick}>
+        <button className={className} onClick={onClick} type={type}>
             {children}
         </button>
     );
