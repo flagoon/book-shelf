@@ -4,6 +4,7 @@ import { BooksConsumer } from '../../../ContextProvider/BooksProvider';
 import { convertDateForInputField } from '../../../Utils/DateHelpers';
 import { StyledButton } from '../../Common/Button/Button';
 import { ButtonContainer, StyledForm, StyledLabel } from './AddBookForm.styled';
+import bookValidationSchema from './bookValidationSchema';
 
 interface IAddBookFormProps {
     hideNotification: () => void;
@@ -23,6 +24,14 @@ export interface IFormikValues {
     date: string;
 }
 
+/* interface IErrors {
+    title?: string;
+    author?: string;
+    isbn?: string;
+    pages?: number;
+    date?: string;
+}
+*/
 const AddBookForm = ({ hideNotification }: IAddBookFormProps) => {
     return (
         <BooksConsumer>
@@ -43,40 +52,47 @@ const AddBookForm = ({ hideNotification }: IAddBookFormProps) => {
                         hideNotification();
                         onNewBookFormSubmit(values);
                     }}
-                    render={(props: FormikProps<IFormikValues>) => (
+                    validationSchema={bookValidationSchema}
+                    render={({values, errors, touched}: FormikProps<IFormikValues>) => {
+ //                       console.log(errors)
+
+                        return (
                         <StyledForm>
                             <StyledLabel htmlFor={'title'}>Title</StyledLabel>
-                            <Field name="title" value={props.values.title} />
+                            <Field name="title" value={values.title} />
+                            {
+                                errors.title && touched.title && <div>Test</div>
+                            }
                             <StyledLabel htmlFor={'author'}>Author</StyledLabel>
-                            <Field name="author" value={props.values.author} />
+                            <Field name="author" value={values.author} />
                             <StyledLabel htmlFor={'isbn'}>ISBN</StyledLabel>
-                            <Field name="isbn" value={props.values.isbn} />
+                            <Field name="isbn" value={values.isbn} />
                             <StyledLabel htmlFor={'description'}>Description</StyledLabel>
                             <Field name="description" component={'textarea'}>
-                                {props.values.description}
+                                {values.description}
                             </Field>
                             <StyledLabel htmlFor={'isRead'} className={'labelIsRead'}>
                                 Is read?
-                                <Field name="isRead" id={'isRead'} checked={props.values.isRead} type={'checkbox'} />
+                                <Field name="isRead" id={'isRead'} checked={values.isRead} type={'checkbox'} />
                             </StyledLabel>
                             <StyledLabel htmlFor={'picture'}>Picture (URL)</StyledLabel>
-                            <Field name="picture" value={props.values.picture} type={'url'} />
+                            <Field name="picture" value={values.picture} type={'url'} />
                             <StyledLabel htmlFor={'pages'}>Pages</StyledLabel>
-                            <Field name="pages" value={props.values.pages} type={'number'} />
+                            <Field name="pages" value={values.pages} type={'number'} />
                             <StyledLabel htmlFor={'cover'}>Cover</StyledLabel>
-                            <Field name="cover" default={props.values.cover} component={'select'}>
+                            <Field name="cover" default={values.cover} component={'select'}>
                                 <option value={'hard'} label={'Hard'} />
                                 <option value={'soft'} label={'Soft'} />
                             </Field>
                             <StyledLabel htmlFor={'date'}>Acquired</StyledLabel>
-                            <Field name="date" value={props.values.date} type={'date'} />
+                            <Field name="date" value={values.date} type={'date'} />
                             <ButtonContainer>
                                 <StyledButton type={'submit'} color={'blue'}>
                                     Submit
                                 </StyledButton>
                             </ButtonContainer>
                         </StyledForm>
-                    )}
+                    )}}
                 />
             )}
         </BooksConsumer>
