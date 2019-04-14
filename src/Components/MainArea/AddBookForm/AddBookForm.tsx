@@ -21,17 +21,9 @@ export interface IFormikValues {
     picture: string;
     pages: number;
     cover: ICover;
-    date: string;
+    date: any;
 }
 
-/* interface IErrors {
-    title?: string;
-    author?: string;
-    isbn?: string;
-    pages?: number;
-    date?: string;
-}
-*/
 const AddBookForm = ({ hideNotification }: IAddBookFormProps) => {
     return (
         <BooksConsumer>
@@ -48,21 +40,15 @@ const AddBookForm = ({ hideNotification }: IAddBookFormProps) => {
                         cover: 'soft',
                         date: convertDateForInputField(new Date()),
                     }}
-                    onSubmit={(values: IFormikValues, actions: any) => {
+                    onSubmit={(values: IFormikValues) => {
                         hideNotification();
                         onNewBookFormSubmit(values);
                     }}
                     validationSchema={bookValidationSchema}
-                    render={({values, errors, touched}: FormikProps<IFormikValues>) => {
- //                       console.log(errors)
-
-                        return (
+                    render={({values}: FormikProps<IFormikValues>) => (
                         <StyledForm>
                             <StyledLabel htmlFor={'title'}>Title</StyledLabel>
                             <Field name="title" value={values.title} />
-                            {
-                                errors.title && touched.title && <div>Test</div>
-                            }
                             <StyledLabel htmlFor={'author'}>Author</StyledLabel>
                             <Field name="author" value={values.author} />
                             <StyledLabel htmlFor={'isbn'}>ISBN</StyledLabel>
@@ -92,7 +78,7 @@ const AddBookForm = ({ hideNotification }: IAddBookFormProps) => {
                                 </StyledButton>
                             </ButtonContainer>
                         </StyledForm>
-                    )}}
+                    )}
                 />
             )}
         </BooksConsumer>
