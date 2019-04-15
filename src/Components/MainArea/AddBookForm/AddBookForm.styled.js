@@ -21,6 +21,7 @@ export const StyledForm = styled(Form)`
 
 export const StyledLabel = styled.label`
     margin-top: 10px;
+    color: ${(props) => (props.color ? props.color : 'black')}
     line-height: 1;
     width: 300px;
 

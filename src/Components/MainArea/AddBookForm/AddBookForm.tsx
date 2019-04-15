@@ -3,6 +3,7 @@ import React from 'react';
 import { BooksConsumer } from '../../../ContextProvider/BooksProvider';
 import { convertDateForInputField } from '../../../Utils/DateHelpers';
 import { StyledButton } from '../../Common/Button/Button';
+import Tooltip from '../../Common/Tooltip/Tooltip';
 import { ButtonContainer, StyledForm, StyledLabel } from './AddBookForm.styled';
 import bookValidationSchema from './bookValidationSchema';
 
@@ -45,10 +46,16 @@ const AddBookForm = ({ hideNotification }: IAddBookFormProps) => {
                         onNewBookFormSubmit(values);
                     }}
                     validationSchema={bookValidationSchema}
-                    render={({values}: FormikProps<IFormikValues>) => (
+                    render={({ values, errors, touched }: FormikProps<IFormikValues>) => (
                         <StyledForm>
-                            <StyledLabel htmlFor={'title'}>Title</StyledLabel>
+                            <StyledLabel
+                                htmlFor={'title'}
+                                color={errors.title && touched.title ? 'red' : 'black'}
+                            >
+                                Title
+                            </StyledLabel>
                             <Field name="title" value={values.title} />
+                            {errors.title && touched.title && <Tooltip type={'error'}>{errors.title}</Tooltip>}
                             <StyledLabel htmlFor={'author'}>Author</StyledLabel>
                             <Field name="author" value={values.author} />
                             <StyledLabel htmlFor={'isbn'}>ISBN</StyledLabel>
