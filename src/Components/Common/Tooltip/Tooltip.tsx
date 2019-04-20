@@ -1,19 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function Tooltip(props: any) {
-    return <TooltipContainer type={props.type}>{props.children}</TooltipContainer>;
+interface ITooltipContainer {
+    type: string;
+    children: string;
+    position: string;
 }
 
-const TooltipContainer: any = styled.div`
+function Tooltip(props: ITooltipContainer) {
+    return (
+        <TooltipContainer type={props.type} position={props.position}>
+            {props.children}
+        </TooltipContainer>
+    );
+}
+
+// eslint-disable-next-line no-mixed-operators
+const TooltipContainer = styled.div<ITooltipContainer>`
     background: black;
     color: white;
     font-size: 12px;
     font-weight: bold;
-    padding: 3px;
-    width: 10rem;
-    position: relative;
-    margin-top: 3px;
+    padding: 5px;
+    right: 0;
+    position: absolute;
+    margin-top: ${(props: ITooltipContainer) => (props.position === 'top' ? '0.3rem' : '3.1rem')};
 `;
 
 export default Tooltip;

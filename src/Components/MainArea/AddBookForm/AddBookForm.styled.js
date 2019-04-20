@@ -38,6 +38,12 @@ export const StyledLabel = styled.label`
     }
 `;
 
+export const StyledFieldContainer = styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: column;
+`;
+
 export const ButtonContainer = styled.div`
     margin-top: 10px;
 `;
