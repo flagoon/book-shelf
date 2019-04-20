@@ -48,16 +48,19 @@ const AddBookForm = ({ hideNotification }: IAddBookFormProps) => {
                     validationSchema={bookValidationSchema}
                     render={({ values, errors, touched }: FormikProps<IFormikValues>) => (
                         <StyledForm>
-                            <StyledLabel
-                                htmlFor={'title'}
-                                color={errors.title && touched.title ? 'red' : 'black'}
-                            >
-                                Title
-                            </StyledLabel>
-                            <Field name="title" value={values.title} />
-                            {errors.title && touched.title && <Tooltip type={'error'}>{errors.title}</Tooltip>}
-                            <StyledLabel htmlFor={'author'}>Author</StyledLabel>
-                            <Field name="author" value={values.author} />
+                            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                <StyledLabel htmlFor={'title'} color={errors.title && touched.title ? 'red' : 'black'}>
+                                    Title
+                                </StyledLabel>
+                                <Field name="title" value={values.title} />
+                                {errors.title && touched.title && <Tooltip type={'error'} position={'bottom'}>{errors.title}</Tooltip>}
+                            </div>
+                            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                <StyledLabel htmlFor={'author'}>Author</StyledLabel>
+                                <Field name="author" value={values.author} />
+                                {errors.author && touched.author && <Tooltip type={'error'} position={'top'}>{errors.author}</Tooltip>}
+                            </div>
+
                             <StyledLabel htmlFor={'isbn'}>ISBN</StyledLabel>
                             <Field name="isbn" value={values.isbn} />
                             <StyledLabel htmlFor={'description'}>Description</StyledLabel>

@@ -1,8 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function Tooltip(props: any) {
-    return <TooltipContainer type={props.type}>{props.children}</TooltipContainer>;
+interface ITooltipContainer {
+    type: string;
+    children: string;
+    position: string;
+}
+
+function Tooltip(props: ITooltipContainer) {
+    return <TooltipContainer type={props.type} position={props.position}>{props.children}</TooltipContainer>;
 }
 
 const TooltipContainer: any = styled.div`
@@ -12,8 +18,8 @@ const TooltipContainer: any = styled.div`
     font-weight: bold;
     padding: 3px;
     width: 10rem;
-    position: relative;
-    margin-top: 3px;
+    position: absolute;
+    margin-top: ${(props: any) => props.position === 'top' ? '0.3rem' : '3.1rem'}
 `;
 
 export default Tooltip;
