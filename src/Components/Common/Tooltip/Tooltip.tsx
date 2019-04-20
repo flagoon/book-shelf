@@ -11,7 +11,7 @@ function Tooltip(props: ITooltipContainer) {
     return <TooltipContainer type={props.type} position={props.position}>{props.children}</TooltipContainer>;
 }
 
-const TooltipContainer: any = styled.div`
+const TooltipContainer = styled.div<ITooltipContainer>`
     background: black;
     color: white;
     font-size: 12px;
