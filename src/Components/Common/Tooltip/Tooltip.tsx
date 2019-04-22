@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import { TooltipContainer } from './Tooltip.styled';
 
-interface ITooltipContainer {
+export interface ITooltipContainer {
     type: string;
     children: string;
     position: string;
@@ -14,17 +14,5 @@ function Tooltip(props: ITooltipContainer) {
         </TooltipContainer>
     );
 }
-
-// eslint-disable-next-line no-mixed-operators
-const TooltipContainer = styled.div<ITooltipContainer>`
-    background: black;
-    color: white;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 5px;
-    right: 0;
-    position: absolute;
-    margin-top: ${(props: ITooltipContainer) => (props.position === 'top' ? '0.3rem' : '3.1rem')};
-`;
 
 export default Tooltip;

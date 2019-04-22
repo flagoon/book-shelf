@@ -5,22 +5,23 @@ interface IButton {
     color: string;
     children: ReactNode;
     type: string;
+    disabled?: boolean;
     className?: string;
     onClick?: () => MouseEvent;
     [key: string]: ReactNode | string;
 }
 
 export const Button = (props: IButton) => {
-    const { children, className, onClick, type } = props;
+    const { children, className, onClick, type, disabled } = props;
     return (
-        <button className={className} onClick={onClick} type={type}>
+        <button className={className} onClick={onClick} type={type} disabled={disabled}>
             {children}
         </button>
     );
 };
 
 export const StyledButton = styled(Button)`
-    background-color: ${({ color }: IButton) => (color ? color : 'gray')};
+    background-color: ${({ color, disabled }: IButton) => (disabled ? 'gray' : color || 'gray')};
     color: white;
     font-weight: bold;
     padding: 0.5rem;
@@ -33,8 +34,7 @@ export const StyledButton = styled(Button)`
     }
 
     &:hover {
-        cursor: pointer;
-        background-color: ${({ color }: IButton) => (color ? '#FFCD64' : 'darkgrey')};
-        color: black;
+        cursor: ${({disabled}: IButton) => (disabled ? 'default' : 'pointer')};
+        background-color: ${({ color, disabled }: IButton) => (disabled ? 'gray' : color || 'darkgray')};
     }
 `;
