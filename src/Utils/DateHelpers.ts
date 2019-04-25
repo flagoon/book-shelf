@@ -1,7 +1,6 @@
-export const convertDateForInputField = (date: Date) => {
-    return date
-        .toLocaleDateString()
+export const convertDateForInputField = (date: Date) =>
+    date
+        .toLocaleDateString('en-GB')
         .split('/')
         .reverse()
         .join('-');
-};
